@@ -1,0 +1,13 @@
+Query and Apollo
+
+1.  Tipe Query ada 4 :
+    Query - Basics: dengan graphQL kita bisa mendapatkan data yang menentukan bidang apa yang ingin kami dapatkan dan graphQL akan memberi kami data berdasarkan apa yang kami definisikan. Misalnya, bayangkan ada satu koleksi dalam database yang menyimpan data film.
+    Query - multiple related data sources / collections : dapat menggunakan query untuk mendapatkan data dari beberapa koleksi terkait. Pada contoh di bawah ini, jika kita ingin mendapatkan data direktur kita perlu menggunakan director.id untuk mendapatkan data dari endpoint lain, tetapi dengan graphql kita juga dapat mendefinisikan bidang yang dibutuhkan secara langsung asalkan tersedia di server GraphQL.
+    Query - multiple unrelated data sources / collections : Kami juga dapat menggunakan kueri untuk mendapatkan data dari beberapa koleksi yang tidak terkait untuk meminimalkan permintaan jaringan. Gambar jika kita menginginkan data film dan data buku. Dengan REST kita perlu melakukan setidaknya 2 permintaan ke 2 titik akhir yang berbeda. Dengan GraphQL kita bisa melakukan 1 request untuk mendapatkan data tersebut.
+    Query - fragments : Fragmen GraphQL adalah bagian dari logika yang dapat dibagi antara beberapa kueri dan mutasi. Kita dapat gunakan fragmen untuk menyederhanakan kueri atau mutasi.
+
+2. Apollo Client adalah perpustakaan manajemen status komprehensif untuk JavaScript yang memungkinkan kami mengelola data lokal dan jarak jauh dengan GraphQL. Gunakan untuk mengambil, menyimpan, dan memodifikasi data aplikasi, sambil memperbarui UI secara otomatis. Pustaka inti @apollo/client menyediakan integrasi bawaan dengan React. Kami menggunakan klien Apollo untuk melakukan operasi GraphQL (kueri, mutasi, dan berlangganan) di dalam aplikasi React atau Next JS kami bekerja dengan baik dengan server GraphQL (Hasura, Apollo Server, dll)
+
+3. Query dengan Apollo Client
+    lazy query: Kait useLazyQuery sangat cocok untuk mengeksekusi query sebagai respons terhadap peristiwa selain rendering komponen. Tidak seperti useQuery, saat Anda memanggil useLazyQuery, ia tidak segera mengeksekusi query terkaitnya. Sebagai gantinya, ia mengembalikan fungsi query dalam tupel hasil yang Anda panggil kapan pun Anda siap untuk menjalankan kueri.
+    refetching: Refetching memungkinkan Anda untuk menyegarkan hasil query sebagai respons terhadap tindakan pengguna tertentu, bukan menggunakan interval tetap. Anda dapat secara opsional menyediakan objek variabel baru ke fungsi pengambilan ulang. Jika tidak, query akan menggunakan variabel yang sama dengan yang digunakan dalam eksekusi sebelumnya.

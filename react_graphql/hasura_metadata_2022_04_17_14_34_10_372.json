@@ -1,0 +1,49 @@
+{
+  "resource_version": 29,
+  "metadata": {
+    "version": 3,
+    "sources": [
+      {
+        "name": "default",
+        "kind": "postgres",
+        "tables": [
+          {
+            "table": {
+              "schema": "public",
+              "name": "anggota"
+            },
+            "array_relationships": [
+              {
+                "name": "keterangan",
+                "using": {
+                  "foreign_key_constraint_on": {
+                    "column": "id_anggota",
+                    "table": {
+                      "schema": "public",
+                      "name": "keterangan"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "table": {
+              "schema": "public",
+              "name": "keterangan"
+            }
+          }
+        ],
+        "configuration": {
+          "connection_info": {
+            "use_prepared_statements": false,
+            "database_url": {
+              "from_env": "PG_DATABASE_URL"
+            },
+            "isolation_level": "read-committed"
+          }
+        }
+      }
+    ]
+  }
+}
